@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWW.Project.MWWTools.DotNetConfigurationExtends", "MWW.Project.MWWTools.DotNetConfigurationExtends.csproj", "{FCF62F14-2880-440B-85AA-A406CED8A88A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWW.Project.MWWTools", "..\MWW.Project.MWWTools\MWW.Project.MWWTools.csproj", "{B2557E28-B2B4-4A36-BF32-AE709ED59A49}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCF62F14-2880-440B-85AA-A406CED8A88A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCF62F14-2880-440B-85AA-A406CED8A88A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCF62F14-2880-440B-85AA-A406CED8A88A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCF62F14-2880-440B-85AA-A406CED8A88A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2557E28-B2B4-4A36-BF32-AE709ED59A49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2557E28-B2B4-4A36-BF32-AE709ED59A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2557E28-B2B4-4A36-BF32-AE709ED59A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2557E28-B2B4-4A36-BF32-AE709ED59A49}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWW.Project.MWWTools.GameExtends", "MWW.Project.MWWTools.GameExtends.csproj", "{108F4A91-1EEB-4CE9-98D7-CAC8430B1064}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWW.Project.MWWTools", "..\MWW.Project.MWWTools\MWW.Project.MWWTools.csproj", "{B2557E28-B2B4-4A36-BF32-AE709ED59A49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWW", "..\..\libraries\MWW\MWW.csproj", "{318A3070-6896-4E82-B52B-7A1959156DF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWW.Game", "..\..\libraries\MWW.Game\MWW.Game.csproj", "{C9BCA164-E929-4269-A0C0-B7577EF2740C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libraries", "libraries", "{296D54FD-AF41-406E-861E-16F980C5D10F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWW.Objects", "..\..\libraries\MWW.Objects\MWW.Objects.csproj", "{2BEF68EA-8293-4764-A7C2-1CF80D1958C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{108F4A91-1EEB-4CE9-98D7-CAC8430B1064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{108F4A91-1EEB-4CE9-98D7-CAC8430B1064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{108F4A91-1EEB-4CE9-98D7-CAC8430B1064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{108F4A91-1EEB-4CE9-98D7-CAC8430B1064}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2557E28-B2B4-4A36-BF32-AE709ED59A49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2557E28-B2B4-4A36-BF32-AE709ED59A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2557E28-B2B4-4A36-BF32-AE709ED59A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2557E28-B2B4-4A36-BF32-AE709ED59A49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{318A3070-6896-4E82-B52B-7A1959156DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{318A3070-6896-4E82-B52B-7A1959156DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{318A3070-6896-4E82-B52B-7A1959156DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{318A3070-6896-4E82-B52B-7A1959156DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9BCA164-E929-4269-A0C0-B7577EF2740C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9BCA164-E929-4269-A0C0-B7577EF2740C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9BCA164-E929-4269-A0C0-B7577EF2740C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9BCA164-E929-4269-A0C0-B7577EF2740C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BEF68EA-8293-4764-A7C2-1CF80D1958C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BEF68EA-8293-4764-A7C2-1CF80D1958C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BEF68EA-8293-4764-A7C2-1CF80D1958C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BEF68EA-8293-4764-A7C2-1CF80D1958C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C9BCA164-E929-4269-A0C0-B7577EF2740C} = {296D54FD-AF41-406E-861E-16F980C5D10F}
+		{318A3070-6896-4E82-B52B-7A1959156DF1} = {296D54FD-AF41-406E-861E-16F980C5D10F}
+		{2BEF68EA-8293-4764-A7C2-1CF80D1958C3} = {296D54FD-AF41-406E-861E-16F980C5D10F}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonlit.Tools.Sql", "Moonlit.Tools.Sql.csproj", "{C358EE6B-4618-4638-A69F-BF9637D25D7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonlit.Tools", "..\moonlit.tools\Moonlit.Tools.csproj", "{B2557E28-B2B4-4A36-BF32-AE709ED59A49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonlit", "..\..\moonlit\moonlit\Moonlit.csproj", "{318A3070-6896-4E82-B52B-7A1959156DF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		stage|Any CPU = stage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C358EE6B-4618-4638-A69F-BF9637D25D7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C358EE6B-4618-4638-A69F-BF9637D25D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C358EE6B-4618-4638-A69F-BF9637D25D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C358EE6B-4618-4638-A69F-BF9637D25D7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C358EE6B-4618-4638-A69F-BF9637D25D7F}.stage|Any CPU.ActiveCfg = Release|Any CPU
+		{C358EE6B-4618-4638-A69F-BF9637D25D7F}.stage|Any CPU.Build.0 = Release|Any CPU
+		{B2557E28-B2B4-4A36-BF32-AE709ED59A49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2557E28-B2B4-4A36-BF32-AE709ED59A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2557E28-B2B4-4A36-BF32-AE709ED59A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2557E28-B2B4-4A36-BF32-AE709ED59A49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2557E28-B2B4-4A36-BF32-AE709ED59A49}.stage|Any CPU.ActiveCfg = Release|Any CPU
+		{B2557E28-B2B4-4A36-BF32-AE709ED59A49}.stage|Any CPU.Build.0 = Release|Any CPU
+		{318A3070-6896-4E82-B52B-7A1959156DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{318A3070-6896-4E82-B52B-7A1959156DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{318A3070-6896-4E82-B52B-7A1959156DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{318A3070-6896-4E82-B52B-7A1959156DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{318A3070-6896-4E82-B52B-7A1959156DF1}.stage|Any CPU.ActiveCfg = stage|Any CPU
+		{318A3070-6896-4E82-B52B-7A1959156DF1}.stage|Any CPU.Build.0 = stage|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
