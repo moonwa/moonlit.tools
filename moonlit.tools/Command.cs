@@ -12,7 +12,10 @@ namespace Moonlit.Tools
     public abstract class Command
     {
         protected ILogger Logger { get; }
-
+        public Command()
+        {
+            Logger = new ConsoleLogger();
+        }
         /// <summary>
         /// 初始化全局参数解析器
         /// 该参数解析器会使用 [?:Help]为参数值
@@ -30,29 +33,16 @@ namespace Moonlit.Tools
         }
         #region CreateCommand
 
-        [STAThread]
-        public static int Main(string[] args)
+
+        public static int RunCommand<T>(string[] args) where T : Command
         {
-            var type = GetCommandType();
-            var command = CreateCommandInstance(type);
+            var command = CreateCommandInstance(typeof(T));
             return command.Execute(args);
         }
-
         private static Command CreateCommandInstance(Type type)
         {
             Command command = (Command)System.Activator.CreateInstance(type);
             return command;
-        }
-
-        private static Type GetCommandType()
-        {
-            var assembly = Assembly.GetEntryAssembly();
-            var type = assembly.GetTypes().FirstOrDefault(x => typeof(Command).IsAssignableFrom(x));
-            if (type == null)
-            {
-                throw new UsageErrorException("未实现 command");
-            }
-            return type;
         }
 
         private int Execute(string[] args)
@@ -61,9 +51,9 @@ namespace Moonlit.Tools
 
             bool showHelp = globalParser.GetEntity<DefinitionParameter>("help").Defined;
 
-            new Usage(this.GetType()).Show("");
             if (showHelp)
             {
+                new Usage(this.GetType(), Logger).Show("");
                 return 0;
             }
 
@@ -74,7 +64,7 @@ namespace Moonlit.Tools
             }
             try
             {
-                List<string> parameters = globalParser.Targets.Skip(2).ToList();
+                List<string> parameters = globalParser.Targets.ToList();
                 Parser parser = CreateParser(this.GetType());
                 parser.Parse(parameters.ToArray());
                 FillCommand(this, parser);
@@ -82,7 +72,7 @@ namespace Moonlit.Tools
             }
             catch (UsageErrorException usageEx)
             {
-                new Usage(this.GetType()).Show(usageEx.Message);
+                new Usage(this.GetType(), Logger).Show(usageEx.Message);
             }
             catch (Exception ex)
             {
@@ -111,11 +101,8 @@ namespace Moonlit.Tools
             foreach (PropertyInfo propertyInfo in commandType.GetProperties())
             {
                 object[] attrs = propertyInfo.GetCustomAttributes(false);
-                IParameterSetter attr = attrs.OfType<IParameterSetter>().FirstOrDefault();
-                if (attr != null)
-                {
-                    di[propertyInfo.Name] = attr.GetValue(parser, propertyInfo);
-                }
+                var parameterSetter = attrs.OfType<IParameter>().FirstOrDefault();
+                di[propertyInfo.Name] = parameterSetter?.GetValue(parser, propertyInfo);
             }
             Newtonsoft.Json.JsonConvert.PopulateObject(Newtonsoft.Json.JsonConvert.SerializeObject(di), command);
         }
@@ -137,11 +124,9 @@ namespace Moonlit.Tools
         {
             foreach (PropertyInfo property in commandType.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance))
             {
-                ParameterAttribute parameterAttr = ParameterAttribute.GetParameter(property);
-                if (parameterAttr != null)
-                {
-                    parser.AddArguments(parameterAttr.CreateParameter(property));
-                }
+                IParameter parameterAttr = property.GetCustomAttributes(true).OfType<IParameter>().FirstOrDefault();
+
+                parameterAttr?.Set(parser, property);
             }
         }
 

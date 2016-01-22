@@ -7,7 +7,7 @@ using Moonlit.Configuration.ConsoleParameter;
 namespace Moonlit.Tools
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
-    public class ParameterAttribute : Attribute, IParameterSetter
+    public class ParameterAttribute : Attribute, IParameter
     {
         private string _parameterName;
 
@@ -105,6 +105,50 @@ namespace Moonlit.Tools
                 if (valueParameter.Defined)
                     return valueParameter.Value;
                 else return null;
+            }
+        }
+
+        public void Set(Parser parser, PropertyInfo property)
+        {
+            parser.AddArguments(CreateParameter(property));
+        }
+
+        public string Desc(PropertyInfo property)
+        {
+            var parameterName = ParameterName ?? property.Name;
+            var prefixs = Prefixs?.Split(new[] { ',', ';', ' ' }) ?? new string[0];
+            IEnumerable<PrefixEntity> prefixEntities = prefixs.Select(x => x.Length == 1 ? (PrefixEntity)(ShortPrefix)x[0] : (PrefixEntity)(LongOrSplitPrefix)x).Union(new[] { (LongOrSplitPrefix)_parameterName });
+            var prefix = prefixEntities.FirstOrDefault();
+            if (IsDefinition(property.PropertyType))
+            {
+                if (prefix == null)
+                {
+                    return $"--{parameterName}";
+                }
+                else
+                {
+                    return $"-{prefix?.Key}";
+                }
+            }
+            if (IsEnum(property.PropertyType))
+            {
+                var names = string.Join("|", Enum.GetNames(property.PropertyType));
+                if (prefix == null)
+                {
+                    return $"--{parameterName} ({names})";
+                }
+                else
+                {
+                    return $"-{prefix?.Key}  ({names})";
+                }
+            }
+            if (prefix == null)
+            {
+                return $"--{parameterName} {parameterName}";
+            }
+            else
+            {
+                return $"-{prefix?.Key} {parameterName}";
             }
         }
     }

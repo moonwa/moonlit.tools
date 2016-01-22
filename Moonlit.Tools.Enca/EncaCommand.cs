@@ -9,12 +9,24 @@ namespace Moonlit.Tools.Enca
 {
     public class EncaCommand : Command
     {
+        [STAThread]
+        public static int Main(string[] args)
+        {
+            return RunCommand<EncaCommand>(args);
+        }
+
+         
+
         protected override int Run()
         {
-            this.Logger.InfoLine($"File: {Target} Encoding " + GetEncoding(Target));
+            if (string.IsNullOrEmpty(Target))
+            {
+                throw new UsageErrorException("type target please");
+            }
+            this.Logger.InfoLine($"File: {Target} is encoding as " + GetEncoding(Target)?.BodyName);
             return 0;
         }
-        [Target]
+        [Target(Required = true)]
         public string Target { get; set; }
         private Encoding GetEncoding(string file)
         {
@@ -22,7 +34,7 @@ namespace Moonlit.Tools.Enca
             {
                 using (var streamReader = new StreamReader(fs, Encoding.Default, true))
                 {
-                    var content = streamReader.ReadToEnd();
+                    var content = streamReader.Read();
                     return streamReader.CurrentEncoding;
                 }
             }
